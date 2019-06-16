@@ -60,7 +60,8 @@ func PrepareGenesisState(validatorCount uint32) *BeaconState {
 
 	eth1Data := Eth1Data{
 		DepositRoot: depositsRoot,
-		BlockHash:   Root{42}, // TODO eth1 simulation
+		BlockHash:   Root{42},
+		DepositCount: DepositIndex(len(deposits)),
 	}
 	return genesis.GetGenesisBeaconState(deposits, genesisTime, eth1Data)
 }
